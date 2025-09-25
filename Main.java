@@ -8,6 +8,7 @@ public class Main
 
             Lexer.Token token; 
             while((token = lexer.yylex()) != null){
+                // System.out.println(token.getType()+" "+token.getLexeme());
                 switch (token.getType()){
                     case Lexer.SYM_OPERATOR:
                         System.out.println("operator: "+token.getLexeme());
@@ -36,6 +37,7 @@ public class Main
                         System.out.println("identifier \""+token.getLexeme()+"\" already in symbol table");
                         break;
                     case Lexer.SYM_UNKNOWN:
+                        System.out.println("Error! could not classify: "+token.getLexeme());
                         break;
                     default:
                         break;
